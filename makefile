@@ -1,7 +1,8 @@
 SRC = main.c \
 			src/date.c \
 			src/transaction.c \
-			src/ui_functions.c
+			src/ui_functions.c \
+			src/parser.c
 
 
 

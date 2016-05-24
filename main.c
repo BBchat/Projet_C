@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "include/ui_functions.h"
 #include "include/transaction.h"
+#include "include/parser.h"
 
 //transaction types definition
 int TRANSFERT = 0;
@@ -22,6 +23,17 @@ int main()
     2 : charger une session
     3 : nouvelle session
     */
+    int i, j;
+    char ***aze = parser("test.csv");
+
+
+    for (i = 0; i < 2; i++) {
+      for(j = 0; j < 4; j++){
+        printf("%s - %d %d\n", aze[i][j], i, j);
+        //puts(aze[i][j]);
+      }
+    }
+
     while(quit == 0)
     {
         clear_screen();
