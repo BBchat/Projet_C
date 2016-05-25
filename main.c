@@ -29,7 +29,7 @@ int main()
 
     for (i = 0; i < 2; i++) {
       for(j = 0; j < 4; j++){
-        printf("%s - %d %d\n", aze[i][j], i, j);
+        printf("%s\n", aze[i][j]);
         //puts(aze[i][j]);
       }
     }

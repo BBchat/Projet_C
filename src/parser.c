@@ -39,7 +39,7 @@ char** split_line(char* ligne) {
     if (ligne[i] == ',' || ligne[i] == '\0') {
       tmp[j] = '\0';
 
-      splited_line[k++] = tmp;
+      splited_line[k++] = trimWhiteSpace(tmp);
 
       tmp = malloc(150*sizeof(char));
       j = 0;
@@ -50,6 +50,9 @@ char** split_line(char* ligne) {
   return splited_line;
 }
 
-char *trimWhiteSpace() {
-  
-}
+char* trimWhiteSpace(char *mot) {
+  if (mot[0] == ' ') {
+    mot++;
+    }
+    return mot;
+  }
