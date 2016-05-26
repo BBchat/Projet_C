@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "../include/ui_functions.h"
 
+
+
 void clear_screen()
 {
     if (WINDOWS == 1)

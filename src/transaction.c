@@ -18,6 +18,7 @@ Transaction* create_transaction(Date* date, double amount, int type, char* descr
     (*res).amount = amount;
     (*res).description = description;
     (*res).type = type;
+    (*res).next = NULL;
     return res;
 }
 

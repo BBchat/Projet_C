@@ -2,12 +2,14 @@
 #define TRANSACTION_H_INCLUDED
 #include "../include/date.h"
 
-struct Transaction{
+typedef struct s_Transaction Transaction;
+struct s_Transaction{
 Date* date;
 double amount;
 int type;
 char* description;
-}typedef Transaction;
+Transaction* next;
+};
 
 void Transaction_print(Transaction* trs);
 Transaction* create_transaction(Date* date, double amount, int type, char* description);

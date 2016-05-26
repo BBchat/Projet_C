@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/parser.h"
-#include "../include/date.h"
-#include "../include/transaction.h"
 
 char*** parser(char *nomFichier) {
 
@@ -35,13 +33,13 @@ char** split_line(char* ligne) {
   int j = 0;
   int k = 0;
 
-  while (ligne[i] != '\0') {
+  while(ligne[i] != '\0') {
     tmp[j++] = ligne[i++];
 
     if (ligne[i] == ',' || ligne[i] == '\0') {
       tmp[j] = '\0';
 
-      splited_line[k++] = trimWhiteSpace(tmp);
+      splited_line[k++] = tmp;
 
       tmp = malloc(150*sizeof(char));
       j = 0;
@@ -58,66 +56,3 @@ char* trimWhiteSpace(char *mot) {
     }
     return mot;
   }
-
-  Date* recup_date(char*** fichier_parse, int ligne) {
-    char j1 = fichier_parse[ligne][0][0];
-    char j2 = fichier_parse[ligne][0][1];
-    char j[3] = {j1, j2, '\0'};
-      int jour = atoi(j);
-
-    char m1 = fichier_parse[ligne][0][2];
-    char m2 = fichier_parse[ligne][0][3];
-    char m[3] = {m1, m2, '\0'};
-      int mois = atoi(m);
-
-    char a1 = fichier_parse[ligne][0][4];
-    char a2 = fichier_parse[ligne][0][5];
-    char a3 = fichier_parse[ligne][0][6];
-    char a4 = fichier_parse[ligne][0][7];
-    char a[5] = {a1, a2, a3, a4, '\0'};
-      int annee = atoi(a);
-
-  return create_date(annee, mois, jour);
-  }
-
-  double recup_amount(char*** fichier_parse, int ligne) {
-    return atof(fichier_parse[ligne][1]);
-  }
-
-  int recup_type(char*** fichier_parse, int ligne) {
-    return atoi(fichier_parse[ligne][2]);
-  }
-
-  char* recup_description(char*** fichier_parse, int ligne) {
-    return fichier_parse[ligne][3];
-  }
-
-  // void recup_transactions(char *NomFichier, int ligne) {
-  //   char ***fichier_parser = parser(NomFichier);
-  //   Transaction* transaction;
-  //
-  //     Date* date = recup_date(fichier_parser, ligne);
-  //     double montant = recup_amount(fichier_parser, ligne);
-  //     int type = recup_type(fichier_parser, ligne);
-  //     char* blabla = recup_description(fichier_parser, ligne);
-  //
-  //     transaction = create_transaction(date, montant, type, blabla);
-  //     Transaction_print(transaction);
-  //
-  //   }
-
-  void recup_tr(char *NomFichier) {
-      char ***fichier_parser = parser(NomFichier);
-      int i=0;
-      Transaction* transaction;
-      while (*(fichier_parser + i + 1) != '\0') {
-        Date* date = recup_date(fichier_parser, i);
-        double montant = recup_amount(fichier_parser, i);
-        int type = recup_type(fichier_parser, i);
-        char* blabla = recup_description(fichier_parser, i);
-
-        transaction = create_transaction(date, montant, type, blabla);
-        Transaction_print(transaction);
-        i++;
-        }
-      }

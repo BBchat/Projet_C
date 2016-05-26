@@ -21,6 +21,27 @@ void date_print(Date* date)
     printf("%d",(*date).year);
 }
 
+/*
+renvoie 1 si date1 est plus grande que date2
+donc si date1 est plus récente date2
+*/
+int date_compare(Date* date1, Date* date2)
+{
+    if((*date1).year > (*date2).year)
+        return 1;
+    else if((*date1).year < (*date2).year)
+        return 0;
+    else if((*date1).month > (*date2).month)
+        return 1;
+    else if((*date1).month < (*date2).month)
+        return 0;
+    else if((*date1).day > (*date2).day)
+        return 1;
+
+    return 0;
+}
+
+
 Date* create_date(int year, int month, int day)
 {
     Date* res;

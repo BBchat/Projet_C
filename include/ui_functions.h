@@ -7,6 +7,7 @@
 #define WINDOWS 0
 #endif
 
+
 void clear_screen();
 void draw_title();
 void draw_mode1_ui();
