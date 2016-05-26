@@ -3,6 +3,8 @@
 #include "../include/parser.h"
 #include "../include/date.h"
 #include "../include/transaction.h"
+#include "../include/loaded_transactions.h"
+
 
 char*** parser(char *nomFichier) {
 
@@ -41,7 +43,7 @@ char** split_line(char* ligne) {
     if (ligne[i] == ',' || ligne[i] == '\0') {
       tmp[j] = '\0';
 
-      splited_line[k++] = tmp;
+      splited_line[k++] = trimWhiteSpace(trimBackslash_n(tmp));
 
       tmp = malloc(150*sizeof(char));
       j = 0;
@@ -52,9 +54,20 @@ char** split_line(char* ligne) {
   return splited_line;
 }
 
-char* trimWhiteSpace(char *mot) {
+char* trimWhiteSpace(char* mot) {
   if (mot[0] == ' ') {
     mot++;
+    }
+    return mot;
+  }
+  
+char* trimBackslash_n(char* mot) {
+    int i = 0;
+    while (mot[i+1] != '\0') {
+      i++;
+    };
+    if (mot[i] == '\n') {
+      mot[i] = '\0';
     }
     return mot;
   }
@@ -117,7 +130,8 @@ char* trimWhiteSpace(char *mot) {
            char* blabla = recup_description(fichier_parser, i);
 
            transaction = create_transaction(date, montant, type, blabla);
-           Transaction_print(transaction);
+           //Transaction_print(transaction);
+           add_transaction(transaction);
            i++;
            }
          }

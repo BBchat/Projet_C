@@ -3,7 +3,9 @@
 
 char*** parser(char *nomFichier);
 char** split_line(char* line);
+
 char* trimWhiteSpace(char *mot);
+char* trimBackslash_n(char* mot);
 
 Date* recup_date(char*** date_collee, int ligne);
 double recup_amount(char*** fichier_parse, int ligne);
