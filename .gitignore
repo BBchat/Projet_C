@@ -35,3 +35,8 @@
 
 test.csv
 test.c
+
+# CodeBlock files
+*.cbp
+*.depend
+*.layout

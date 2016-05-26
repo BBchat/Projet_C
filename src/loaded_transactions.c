@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "../include/transaction.h"
 #include "../include/date.h"
+#include "../include/loaded_transactions.h"
 
 Transaction* first_transaction;
 Transaction* last_transaction;
