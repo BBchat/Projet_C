@@ -23,16 +23,17 @@ int main()
     2 : charger une session
     3 : nouvelle session
     */
-    int i, j;
-    char ***aze = parser("test.csv");
+
+    // char ***aze = parser("test.csv");
+    // recup_tr2("test.csv");
 
 
-    for (i = 0; i < 2; i++) {
-      for(j = 0; j < 4; j++){
-        printf("%s\n", aze[i][j]);
-        //puts(aze[i][j]);
-      }
-    }
+
+
+
+
+
+
 
     while(quit == 0)
     {
@@ -78,4 +79,5 @@ int main()
     delete_transaction(test1);
 
     return 0;
+
 }

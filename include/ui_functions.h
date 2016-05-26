@@ -1,7 +1,7 @@
 #ifndef UI_FUNCTIONS_H_INCLUDED
 #define UI_FUNCTIONS_H_INCLUDED
 
-#ifdef OS_WINDOWS
+#ifdef _WIN32
 #define WINDOWS 1
 #else
 #define WINDOWS 0
