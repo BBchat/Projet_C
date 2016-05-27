@@ -61,12 +61,6 @@ int main()
         }
     }
 
-    // test
-    recup_tr("test.csv");
-    // print_all_transactions();
-    // Date* da = create_date(2016, 5, 26);
-    // Transaction* trans = create_transaction(da, 50, 4, "encore un test !");
-    save_transactions("test2.csv");
     return 0;
 
 }
