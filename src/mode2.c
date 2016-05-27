@@ -62,6 +62,35 @@ void draw_mode2_ui()
 }
 
 
+void draw_stat_mode_ui()
+{
+    printf("MODE STATISTIQUES\n\n\n");
+    printf("0 - retour\n");
+
+    printf("1 - total depenses\n");
+    printf("2 - total revenus\n");
+
+    printf("3 - total transactions pour un type\n");
+    printf("4 - total depenses pour un type\n");
+    printf("5 - total revenus pour un type\n");
+
+    printf("6 - comparaison d'un type sur le total\n");
+
+    printf("7 - depenses sur un mois\n");
+    printf("8 - revenus sur un mois\n");
+
+    printf("9 - depenses d'un type sur un mois\n");
+    printf("10 - revenus d'un type sur un mois\n");
+
+    printf("11 - comparaison d'un type sur le total sur un mois\n");
+
+    printf("12 - depenses sur un an\n");
+    printf("13 - revenus sur un an\n");
+
+    printf("14 - comparaison d'un mois sur l'annee\n");
+}
+
+
 void mode_graph()
 {
     choice = -1;
@@ -80,8 +109,14 @@ void mode_graph()
 
 void stat_mode()
 {
-    clear_screen();
-
+    int quit = 0;
+    while(quit == 0)
+    {
+        clear_screen();
+        draw_stat_mode_ui();
+        scanf("%d",&choice);
+        if(choice == 0) {quit = 1;}
+    }
 }
 
 void mode_2()
@@ -94,12 +129,13 @@ void mode_2()
         scanf("%d",&choice);
         if(choice == 0) {quit = 1;}
         if(choice == 1) {user_add_transaction();}
-        if(choice == 2) {}
+        if(choice == 2) {stat_mode();}
         if(choice == 3) {mode_graph();}
         if(choice == 4) {load_a_csv();}
         if(choice == 5) {save_in_csv(); save_transactions("last_session.cma");}
     }
 }
+
 
 
 
