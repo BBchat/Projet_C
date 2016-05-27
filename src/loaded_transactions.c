@@ -7,6 +7,16 @@
 Transaction* first_transaction;
 Transaction* last_transaction;
 
+Transaction* get_first_transaction()
+{
+    return first_transaction;
+}
+
+Transaction* get_last_transaction()
+{
+    return last_transaction;
+}
+
 void add_transaction(Transaction* trs)
 {
     if(first_transaction == NULL)

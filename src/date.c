@@ -69,6 +69,14 @@ int date_compare(Date* date1, Date* date2)
 }
 
 
+int number_of_days(Date* date)
+{
+    int res = (*date).day + (*date).month*30 + (*date).year*365;
+    return res;
+}
+
+
+
 Date* create_date(int year, int month, int day)
 {
     Date* res;
