@@ -27,6 +27,7 @@ void date_print(Date* date)
     sprintf(day_string, "%s%d", date->day < 10 ? "0" : "", date->day);
     return day_string;
   }
+  // <condition> ? <valeur si vrai> : <valeur si faux>
 
   char* month_to_string(Date* date) {
     char* month_string = malloc(sizeof(char) * 3);
@@ -39,8 +40,6 @@ void date_print(Date* date)
     sprintf(annee_string, "%d", date->year);
     return annee_string;
   }
-
-// <condition> ? <valeur si vrai> : <valeur si faux>
 
  char* date_to_string(Date* date) {
    char* r = malloc(sizeof(char) * 9);
@@ -74,7 +73,6 @@ int number_of_days(Date* date)
     int res = (*date).day + (*date).month*30 + (*date).year*365;
     return res;
 }
-
 
 
 Date* create_date(int year, int month, int day)

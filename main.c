@@ -28,12 +28,6 @@ int main()
     3 : nouvelle session
     */
 
-    /*TEST DU PARSER
-    int i, j;
-    char ***aze = parser("test.csv");
-    */
-
-
     while(quit == 0)
     {
         clear_screen();
@@ -67,15 +61,11 @@ int main()
     }
 
     // test
-    // recup_tr("test.csv");
+    recup_tr("test.csv");
     // print_all_transactions();
-    Date* da = create_date(2016, 5, 26);
-    Transaction* trans = create_transaction(da, 50, 4, "encore un test !");
-    //save_transaction(trans, "test2.txt");
-    // printf("%d", (*trans).amount);
-
-    printf("%s\n", date_to_string(da));
-
+    // Date* da = create_date(2016, 5, 26);
+    // Transaction* trans = create_transaction(da, 50, 4, "encore un test !");
+    save_transactions("test2.csv");
 
     // save_tr(trans, "test3.csv");
     // test parser
@@ -84,7 +74,7 @@ int main()
     print_all_transactions();
     */
 
-    //test diagramme
+    /* //test diagramme
     Date* a = create_date(1995,9,11);
     Date* b = create_date(1965,4,1);
     Date* c = create_date(1945,1,8);
@@ -110,7 +100,7 @@ int main()
 
     //ne marche pas encore
     //draw_expenses_chart(0,c,a,10,10);
-
+*/
     return 0;
 
 }
