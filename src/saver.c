@@ -4,6 +4,7 @@
 #include "../include/transaction.h"
 #include "../include/date.h"
 #include "../include/loaded_transactions.h"
+#include "../include/ui_functions.h"
 
 void save_transactions(char* name) {
   FILE *ptr;
@@ -16,4 +17,14 @@ void save_transactions(char* name) {
     current_trs = (*current_trs).next;
   }
   fclose(ptr);
+}
+
+
+void save_in_csv()
+{
+    clear_screen();
+    char* url = malloc(100*sizeof(char));
+    printf("entrez une adresse de fichier\n");
+    scanf("%s",url);
+    save_transactions(url);
 }

@@ -4,6 +4,7 @@
 #include "../include/date.h"
 #include "../include/transaction.h"
 #include "../include/loaded_transactions.h"
+#include "../include/ui_functions.h"
 
 
 char*** parser(char *nomFichier) {
@@ -131,3 +132,13 @@ char** split_line(char* ligne) {
            i++;
            }
          }
+
+
+void load_a_csv()
+{
+    clear_screen();
+    char* url = malloc(100*sizeof(char));
+    printf("entrez une adresse de fichier\n");
+    scanf("%s",url);
+    recup_tr(url);
+}

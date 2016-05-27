@@ -3,6 +3,8 @@
 #include "../include/ui_functions.h"
 #include "../include/loaded_transactions.h"
 #include "../include/chart.h"
+#include "../include/parser.h"
+#include "../include/saver.h"
 
 
 int choice = 0;
@@ -56,6 +58,7 @@ void draw_mode2_ui()
     printf("2 - menu statistiques \n");
     printf("3 - graphique du solde \n");
     printf("4 - charger un fichier csv \n");
+    printf("5 - sauvegarder la session \n");
 }
 
 
@@ -75,6 +78,12 @@ void mode_graph()
 }
 
 
+void stat_mode()
+{
+    clear_screen();
+
+}
+
 void mode_2()
 {
     int quit = 0;
@@ -87,6 +96,8 @@ void mode_2()
         if(choice == 1) {user_add_transaction();}
         if(choice == 2) {}
         if(choice == 3) {mode_graph();}
+        if(choice == 4) {load_a_csv();}
+        if(choice == 5) {save_in_csv(); save_transactions("last_session.cma");}
     }
 }
 

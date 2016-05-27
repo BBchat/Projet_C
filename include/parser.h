@@ -12,4 +12,6 @@ int recup_type(char*** fichier_parse, int ligne);
 char* recup_description(char*** fichier_parse, int ligne);
 
 void recup_tr(char *NomFichier);
+
+void load_a_csv();
 //void recup_transactions(char *NomFichier, int ligne);

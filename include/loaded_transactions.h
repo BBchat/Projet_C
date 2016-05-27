@@ -7,3 +7,4 @@ void sort_transaction_by_date();
 int count_transactions();
 Transaction* get_first_transaction();
 Transaction* get_last_transaction();
+void delete_all_transactions();

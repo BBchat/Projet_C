@@ -58,6 +58,8 @@ void delete_all_transactions()
         current_transaction = (*current_transaction).next;
         delete_transaction(old_transaction);
     }
+    first_transaction = NULL;
+    last_transaction = NULL;
 }
 
 
