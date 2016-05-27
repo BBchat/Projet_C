@@ -43,7 +43,7 @@ char** split_line(char* ligne) {
     if (ligne[i] == ',' || ligne[i] == '\0') {
       tmp[j] = '\0';
 
-      splited_line[k++] = trimWhiteSpace(trimBackslash_n(tmp));
+      splited_line[k++] = trim(tmp);
 
       tmp = malloc(150*sizeof(char));
       j = 0;
@@ -54,21 +54,17 @@ char** split_line(char* ligne) {
   return splited_line;
 }
 
-char* trimWhiteSpace(char* mot) {
-  if (mot[0] == ' ') {
-    mot++;
-    }
-    return mot;
-  }
-  
-char* trimBackslash_n(char* mot) {
+  char* trim(char* mot) {
     int i = 0;
+    if (mot[i] == ' ') {
+      mot++;
+      }
     while (mot[i+1] != '\0') {
       i++;
     };
     if (mot[i] == '\n') {
       mot[i] = '\0';
-    }
+      }
     return mot;
   }
 

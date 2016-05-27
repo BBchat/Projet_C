@@ -21,6 +21,33 @@ void date_print(Date* date)
     printf("%d",(*date).year);
 }
 
+
+  char* day_to_string(Date* date) {
+    char* day_string = malloc(sizeof(char) * 3);
+    sprintf(day_string, "%s%d", date->day < 10 ? "0" : "", date->day);
+    return day_string;
+  }
+
+  char* month_to_string(Date* date) {
+    char* month_string = malloc(sizeof(char) * 3);
+    sprintf(month_string, "%s%d", date->month < 10 ? "0" : "", date->month);
+    return month_string;
+  }
+
+  char* year_to_string(Date* date) {
+    char* annee_string = malloc(sizeof(char) * 5);
+    sprintf(annee_string, "%d", date->year);
+    return annee_string;
+  }
+
+// <condition> ? <valeur si vrai> : <valeur si faux>
+
+ char* date_to_string(Date* date) {
+   char* r = malloc(sizeof(char) * 9);
+   sprintf(r, "%s%s%s", day_to_string(date), month_to_string(date), year_to_string(date));
+   return r;
+ }
+
 /*
 renvoie 1 si date1 est plus grande que date2
 donc si date1 est plus récente date2

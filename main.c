@@ -4,6 +4,7 @@
 #include "include/transaction.h"
 #include "include/parser.h"
 #include "include/loaded_transactions.h"
+#include "include/saver.h"
 
 //transaction types definition
 int TRANSFERT = 0;
@@ -65,8 +66,17 @@ int main()
     }
 
     // test
-    recup_tr("test.csv");
-    print_all_transactions();
+    // recup_tr("test.csv");
+    // print_all_transactions();
+    Date* da = create_date(2016, 5, 26);
+    Transaction* trans = create_transaction(da, 50, 4, "encore un test !");
+    //save_transaction(trans, "test2.txt");
+    // printf("%d", (*trans).amount);
+    
+    printf("%s\n", date_to_string(da));
+
+
+    // save_tr(trans, "test3.csv");
 
     return 0;
 
