@@ -6,6 +6,7 @@
 #include "include/loaded_transactions.h"
 #include "include/saver.h"
 #include "include/chart.h"
+#include "include/stats.h"
 #include "include/mode2.h"
 
 //transaction types definition
@@ -43,6 +44,7 @@ int main()
             mode_2();
         }
     }
+
     return 0;
 }
 

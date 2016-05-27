@@ -1,5 +1,4 @@
 #include "../include/transaction.h"
-#include "../include/transaction.h"
 #include "../include/date.h"
 #include "../include/loaded_transactions.h"
 

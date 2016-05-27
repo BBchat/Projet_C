@@ -4,7 +4,8 @@ SRC = main.c \
 			src/ui_functions.c \
 			src/parser.c \
 			src/loaded_transactions.c \
-			src/saver.c 
+			src/saver.c \
+			src/stats.c
 
 
 
