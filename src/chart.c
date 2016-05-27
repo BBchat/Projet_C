@@ -8,6 +8,9 @@
 //ne marche pas encore
 void draw_expenses_chart(int chart_type, Date* starts, Date* ends, int size_x, int size_y)
 {
+
+        if(get_first_transaction() != NULL)
+        {
         int number = count_transactions();
         Transaction* current_transaction = get_first_transaction();
 
@@ -118,4 +121,5 @@ void draw_expenses_chart(int chart_type, Date* starts, Date* ends, int size_x, i
         }
         date_print(ends);
         printf("\n");
+        }
 }

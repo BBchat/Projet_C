@@ -20,7 +20,16 @@ void draw_title()
     printf("\n");
     printf("0 - quitter \n");
     printf("1 - charger la session precedente \n");
-    printf("2 - nouvelle session \n");
+    if(get_first_transaction() != NULL)
+    {
+        printf("2 - reprendre session \n");
+        printf("3 - nouvelle session (la session en cours sera perdue)\n");
+    }
+    else
+    {
+        printf("2 - nouvelle session \n");
+    }
+
 }
 
 void draw_mode1_ui()

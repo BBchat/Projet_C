@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../include/ui_functions.h"
 #include "../include/loaded_transactions.h"
+#include "../include/chart.h"
 
 
 int choice = 0;
@@ -33,7 +34,7 @@ void user_add_transaction()
     scanf("%lf",&(*amount));
     printf("type de transaction ?\n");
     scanf("%d",&type);
-    printf("description breve ?\n");
+    printf("description breve ? (utiliser des _ a la place des espaces svp)\n");
     scanf("%s",description);
 
     Transaction* trs = create_transaction(date,*amount,type,description);
@@ -57,6 +58,23 @@ void draw_mode2_ui()
     printf("4 - charger un fichier csv \n");
 }
 
+
+void mode_graph()
+{
+    choice = -1;
+    clear_screen();
+    if(get_first_transaction() != NULL && get_first_transaction()->next != NULL )
+        draw_expenses_chart(0,get_first_transaction()->date,get_last_transaction()->date,40,15);
+    else
+        printf("Pas assez de transactions \n\n");
+    printf("\n0 - retour\n");
+    while(choice != 0)
+    {
+        scanf("%d",&choice);
+    }
+}
+
+
 void mode_2()
 {
     int quit = 0;
@@ -68,7 +86,7 @@ void mode_2()
         if(choice == 0) {quit = 1;}
         if(choice == 1) {user_add_transaction();}
         if(choice == 2) {}
-        if(choice == 3) {}
+        if(choice == 3) {mode_graph();}
     }
 }
 

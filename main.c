@@ -37,6 +37,11 @@ int main()
         if(choice == 0) {quit = 1;}
         if(choice == 1) {}
         if(choice == 2) {mode_2();}
+        if(choice == 3)
+        {
+            delete_all_transactions();
+            mode_2();
+        }
     }
     return 0;
 }

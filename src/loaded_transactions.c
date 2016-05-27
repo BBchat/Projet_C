@@ -48,6 +48,19 @@ void print_all_transactions(double start_amount)
 }
 
 
+void delete_all_transactions()
+{
+    Transaction* current_transaction = first_transaction;
+    Transaction* old_transaction;
+    while(current_transaction != NULL)
+    {
+        old_transaction = current_transaction;
+        current_transaction = (*current_transaction).next;
+        delete_transaction(old_transaction);
+    }
+}
+
+
 int count_transactions()
 {
     int res = 0;
