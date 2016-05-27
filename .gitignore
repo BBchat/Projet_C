@@ -33,8 +33,8 @@
 
 .DS_Store
 
-test.csv
 test.c
+test2.c
 
 # CodeBlock files
 *.cbp
