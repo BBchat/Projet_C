@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/ui_functions.h"
-
+#include "../include/loaded_transactions.h"
 
 
 void clear_screen()
@@ -20,8 +20,7 @@ void draw_title()
     printf("\n");
     printf("0 - quitter \n");
     printf("1 - charger la session precedente \n");
-    printf("2 - charger une session depuis une adresse \n");
-    printf("3 - creer une nouvelle session \n");
+    printf("2 - nouvelle session \n");
 }
 
 void draw_mode1_ui()
@@ -33,20 +32,3 @@ void draw_mode1_ui()
     printf("0 - retour \n");
 }
 
-void draw_mode2_ui()
-{
-    printf("--------------------------------\n");
-    printf("| SESSION CHARGEE               |\n");
-    printf("--------------------------------\n");
-    printf("\n");
-    printf("0 - retour \n");
-}
-
-void draw_mode3_ui()
-{
-    printf("--------------------------------\n");
-    printf("| SESSION NOUVELLE             |\n");
-    printf("--------------------------------\n");
-    printf("\n");
-    printf("0 - retour \n");
-}
