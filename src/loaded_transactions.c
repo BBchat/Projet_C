@@ -34,13 +34,15 @@ void add_transaction(Transaction* trs)
     }
 }
 
-void print_all_transactions()
+void print_all_transactions(double start_amount)
 {
     Transaction* current_transaction = first_transaction;
+    double amount = start_amount;
     while(current_transaction != NULL)
     {
         Transaction_print(current_transaction);
-        printf("\n");
+        amount += (*current_transaction).amount;
+        printf(" | %lf EUR\n",amount);
         current_transaction = (*current_transaction).next;
     }
 }

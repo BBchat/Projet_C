@@ -15,9 +15,9 @@ void draw_expenses_chart(int chart_type, Date* starts, Date* ends, int size_x, i
         int day_end = number_of_days(ends);
         double x_rate = ((double)size_x) / ((double)(day_end - day_origin));
 
-        double max = (*current_transaction).amount;
-        double min = max;
-        double amount = max;
+        double max = 0;
+        double min = 0;
+        double amount = 0;
 
         int i;
         double chart[size_x];
@@ -32,11 +32,14 @@ void draw_expenses_chart(int chart_type, Date* starts, Date* ends, int size_x, i
             if(amount > max) {max = amount;}
 
             chart[(int)((number_of_days((*current_transaction).date)-day_origin)*x_rate)] = amount;
-            printf("%d \n", (int)((double)((number_of_days((*current_transaction).date)-day_origin))*x_rate));
+            printf("%d \n",(int)((number_of_days((*current_transaction).date)-day_origin)*x_rate));
+
+            //printf("%lf", amount);
+
             current_transaction = (*current_transaction).next;
         }
 
-        double y_rate = size_y / abs(max - min);
+        double y_rate = ((double)size_y) / ((double)abs(max - min));
         chart[0] = (chart[0]-min)*y_rate;
         for(i=1; i<size_x; i++)
         {
@@ -48,21 +51,36 @@ void draw_expenses_chart(int chart_type, Date* starts, Date* ends, int size_x, i
             {
                 chart[i] = (chart[i]-min)*y_rate;
             }
-
         }
 
         int j;
+        printf("^\n");
         for(j=size_y-1; j>-1; j--)
         {
+            printf("| ");
             for(i=0; i< size_x; i++)
             if(chart[i] > j)
                 {
-                    printf("H");
+                    printf("O");
+                    chart[i] = -1;
                 }
             else
                 {
-                    printf("o");
+                    printf(".");
                 }
             printf("\n");
         }
+        printf("L");
+        for(i=1; i<size_x+4; i++)
+        {
+            printf("-");
+        }
+        printf(">\n");
+        date_print(starts);
+        for(i=1; i<size_x-10; i++)
+        {
+            printf(" ");
+        }
+        date_print(ends);
+        printf("\n");
 }
