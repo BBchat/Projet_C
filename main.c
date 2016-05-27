@@ -4,11 +4,8 @@
 #include "include/transaction.h"
 #include "include/parser.h"
 #include "include/loaded_transactions.h"
-<<<<<<< HEAD
 #include "include/saver.h"
-=======
 #include "include/chart.h"
->>>>>>> 75ca703b3fa4e6b1e5e0af8eba1cebb7a8e1c124
 
 //transaction types definition
 int TRANSFERT = 0;
@@ -112,7 +109,7 @@ int main()
     add_transaction(test6);
 
     //ne marche pas encore
-    draw_expenses_chart(0,c,a,10,10);
+    //draw_expenses_chart(0,c,a,10,10);
 
     return 0;
 
