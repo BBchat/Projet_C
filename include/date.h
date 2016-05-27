@@ -11,5 +11,6 @@ void date_print(Date* date);
 Date* create_date(int year, int month, int day);
 void delete_date(Date* date);
 int date_compare(Date* date1, Date* date2);
+int number_of_days(Date* date);
 
 #endif // DATE_H_INCLUDED
