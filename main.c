@@ -29,12 +29,6 @@ int main()
     3 : nouvelle session
     */
 
-    /*TEST DU PARSER
-    int i, j;
-    char ***aze = parser("test.csv");
-    */
-
-
     while(quit == 0)
     {
         clear_screen();
@@ -68,52 +62,11 @@ int main()
     }
 
     // test
-    // recup_tr("test.csv");
-    // print_all_transactions();
-    Date* da = create_date(2016, 5, 26);
-    Transaction* trans = create_transaction(da, 50, 4, "encore un test !");
-    //save_transaction(trans, "test2.txt");
-    // printf("%d", (*trans).amount);
-
-    printf("%s\n", date_to_string(da));
-
-
-    // save_tr(trans, "test3.csv");
-    // test parser
-    /*
     recup_tr("test.csv");
-    print_all_transactions();
-    */
-
-    //test diagramme
-    /*Date* a = create_date(1995,9,11);
-    Date* b = create_date(1965,4,1);
-    Date* c = create_date(1955,1,8);
-    Date* d = create_date(1975,2,8);
-    Date* e = create_date(1945,1,15);
-    Date* f = create_date(1985,1,9);
-
-    printf("%d",date_compare(e,a));
-
-    Transaction* test1 = create_transaction(a,-1,0,"ceci est un test");
-    Transaction* test2 = create_transaction(b,2,0,"ceci est un autre test");
-    Transaction* test3 = create_transaction(c,2,0,"ceci est un test");
-    Transaction* test4 = create_transaction(d,-1,0,"ceci est un autre test");
-    Transaction* test5 = create_transaction(e,2,0,"ceci est un test");
-    Transaction* test6 = create_transaction(f,-1,0,"ceci est un autre test");
-
-    add_transaction(test1);
-    add_transaction(test2);
-    add_transaction(test3);
-    add_transaction(test4);
-    add_transaction(test5);
-    add_transaction(test6);
-
-    //ne marche pas encore
-    draw_expenses_chart(0,(*get_first_transaction()).date,(*get_last_transaction()).date,50,20);
-
-    print_all_transactions(start_amount);
-*/
+    // print_all_transactions();
+    // Date* da = create_date(2016, 5, 26);
+    // Transaction* trans = create_transaction(da, 50, 4, "encore un test !");
+    save_transactions("test2.csv");
     return 0;
 
 }

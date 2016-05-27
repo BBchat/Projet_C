@@ -3,20 +3,17 @@
 #include "../include/saver.h"
 #include "../include/transaction.h"
 #include "../include/date.h"
+#include "../include/loaded_transactions.h"
 
+void save_transactions(char* name) {
+  FILE *ptr;
+  Transaction* current_trs = get_first_transaction();
 
-// void save_transaction(Transaction* trs, char* name) {
-//   FILE *ptr;
-//   ptr=fopen(name,"w");
-//   fprintf(ptr, date_print(date));
-//   fprintf(ptr, "%lf, %d, %s", (*trs).amount, (*trs).type, (*trs).description);
-//   fclose(ptr);
-// }
-
-// void save_tr(Transaction* trs, char* name) {
-//   FILE *ptr;
-//   ptr=fopen(name,"w");
-//   fprintf(ptr, "%lf, %d, %s", (*trs).amount, (*trs).type, (*trs).description);
-//   fclose(ptr);
-// }
-// (*nomtransaction).date
+  ptr=fopen(name,"w");
+  while (current_trs != NULL) {
+    fprintf(ptr, "%s, ", date_to_string(current_trs->date));
+    fprintf(ptr, "%lf, %d, %s\n", (*current_trs).amount, (*current_trs).type, (*current_trs).description);
+    current_trs = (*current_trs).next;
+  }
+  fclose(ptr);
+}
