@@ -89,7 +89,7 @@ double i_comparedTo_total(int i) {
     result = (total_i/total)*100;
   }
   else {
-    printf("%s\n", "Vous n'avez jamais rien dépensé ! Bravo !");
+    printf("%s\n", "Vous n'avez jamais rien depense ! Bravo !");
   }
   return result;
 }
@@ -184,7 +184,7 @@ double i_comparedTo_month(int m, int y, int i) {
     result = (total_i/total)*100;
   }
   else {
-    printf("%s%d%s%d\n", "Vous n'avez rien dépensé le mois ", m, " de l'année ", y);
+    printf("%s%d%s%d\n", "Vous n'avez rien depense le mois ", m, " de l'annee ", y);
   }
   return result;
 }
@@ -237,7 +237,7 @@ double month_comparedTo_year(int m, int y) {
     result = (total_i/total)*100;
   }
   else {
-    printf("%s%d%s\n", "Vous n'avez rien dépensé l'année ", y, " ! Waouh !");
+    printf("%s%d%s\n", "Vous n'avez rien depense l'annee ", y, " ! Waouh !");
   }
   return result;
 }

@@ -5,6 +5,7 @@
 #include "../include/chart.h"
 #include "../include/parser.h"
 #include "../include/saver.h"
+#include "../include/stats.h"
 
 
 int choice = 0;
@@ -82,12 +83,12 @@ void draw_stat_mode_ui()
     printf("9 - depenses d'un type sur un mois\n");
     printf("10 - revenus d'un type sur un mois\n");
 
-    printf("11 - comparaison d'un type sur le total sur un mois\n");
+    printf("11 - comparaison d'un type sur le total sur un mois (en pourcents)\n");
 
     printf("12 - depenses sur un an\n");
     printf("13 - revenus sur un an\n");
 
-    printf("14 - comparaison d'un mois sur l'annee\n");
+    printf("14 - comparaison d'un mois sur l'annee (en pourcents)\n");
 }
 
 
@@ -115,10 +116,25 @@ void stat_mode()
         clear_screen();
         draw_stat_mode_ui();
         scanf("%d",&choice);
-        if(choice == 0)
+        if(choice == 0){quit = 1;}
+        if(choice == 1){clear_screen(); printf("%lf EUR\n", total_out());}
+        if(choice == 2){clear_screen(); printf("%lf EUR\n", total_in());}
+        if(choice == 3){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_total_type_i(i));}
+        if(choice == 4){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_in_type_i(i));}
+        if(choice == 5){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_out_type_i(i));}
+        if(choice == 6){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", i_comparedTo_total(i));}
+        if(choice == 7){clear_screen(); printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_month(m, y));}
+        if(choice == 8){clear_screen(); printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_month(m, y));}
+        if(choice == 9){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_i_month(m, y,i));}
+        if(choice == 10){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_i_month(m, y,i));}
+        if(choice == 11){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf pourcents\n",  i_comparedTo_month(m, y,i));}
+        if(choice == 12){clear_screen(); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_year(y));}
+        if(choice == 13){clear_screen(); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_year(y));}
+        if(choice == 14){clear_screen(); printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf pourcents\n",  month_comparedTo_year(m, y));}
+        if(quit == 0)
         {
-            quit = 1;
-            save_transactions("last_session.cma");
+            printf("0 - retour\n");
+            scanf("%d",&choice);
         }
     }
 }
@@ -131,7 +147,7 @@ void mode_2()
         clear_screen();
         draw_mode2_ui();
         scanf("%d",&choice);
-        if(choice == 0) {quit = 1;}
+        if(choice == 0) {quit = 1; save_transactions("last_session.cma");}
         if(choice == 1) {user_add_transaction();}
         if(choice == 2) {stat_mode();}
         if(choice == 3) {mode_graph();}
