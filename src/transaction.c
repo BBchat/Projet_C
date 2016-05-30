@@ -3,10 +3,23 @@
 #include "../include/transaction.h"
 #include "../include/date.h"
 
+int types_number = 7;
+char types[7][20] = {"immobilier","virement","loisir","voyage","nourriture","maison","divers"};
+
+
+void print_types()
+{
+    int i;
+    for(i=0; i< types_number; i++)
+    {
+        printf("%d : %s\n",i,types[i]);
+    }
+}
+
 void Transaction_print(Transaction* trs)
 {
     date_print((*trs).date);
-    printf("  |  %lf EUR  |  %d  |  %s", (*trs).amount, (*trs).type, (*trs).description);
+    printf("  |  %lf EUR  |  %s  |  %s", (*trs).amount, types[(*trs).type], (*trs).description);
 }
 
 

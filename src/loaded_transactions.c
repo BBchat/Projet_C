@@ -36,15 +36,39 @@ void add_transaction(Transaction* trs)
 
 void print_all_transactions(double start_amount)
 {
+    int counter = 0;
     Transaction* current_transaction = first_transaction;
     double amount = start_amount;
     while(current_transaction != NULL)
     {
+        counter += 1;
         Transaction_print(current_transaction);
         amount += (*current_transaction).amount;
         printf(" | %lf EUR\n",amount);
         current_transaction = (*current_transaction).next;
     }
+    if(counter == 0)
+        printf("aucune transaction a afficher\n");
+}
+
+void print_all_transactions_from_a_type(double start_amount, int type)
+{
+    Transaction* current_transaction = first_transaction;
+    double amount = start_amount;
+    int counter = 0;
+    while(current_transaction != NULL)
+    {
+        if(current_transaction->type == type)
+        {
+            counter +=1;
+            Transaction_print(current_transaction);
+            amount += (*current_transaction).amount;
+            printf(" | %lf EUR\n",amount);
+        }
+        current_transaction = (*current_transaction).next;
+    }
+    if(counter == 0)
+        printf("aucune transaction a afficher\n");
 }
 
 

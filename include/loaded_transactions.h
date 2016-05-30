@@ -8,3 +8,4 @@ int count_transactions();
 Transaction* get_first_transaction();
 Transaction* get_last_transaction();
 void delete_all_transactions();
+void print_all_transactions_from_a_type(double start_amount, int type);

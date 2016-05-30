@@ -9,13 +9,6 @@
 #include "include/stats.h"
 #include "include/mode2.h"
 
-//transaction types definition
-int TRANSFERT = 0;
-int WITHDRAWAL = 1;
-int REAL_ESTATE = 2;
-int HOBBY = 3;
-int MISCELLANEOUS = 4;
-int TRAVEL = 5;
 double start_amount = 0;
 
 int main()
@@ -44,7 +37,6 @@ int main()
             mode_2();
         }
     }
-
     return 0;
 }
 

@@ -14,6 +14,6 @@ Transaction* next;
 void Transaction_print(Transaction* trs);
 Transaction* create_transaction(Date* date, double amount, int type, char* description);
 void delete_transaction(Transaction* trs);
-
+void print_types();
 
 #endif // TRANSACTION_H_INCLUDED

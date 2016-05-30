@@ -35,6 +35,7 @@ void user_add_transaction()
     printf("INFOS\n");
     printf("montant ?\n");
     scanf("%lf",&(*amount));
+    print_types();
     printf("type de transaction ?\n");
     scanf("%d",&type);
     printf("description breve ? (utiliser des _ a la place des espaces svp)\n");
@@ -60,6 +61,7 @@ void draw_mode2_ui()
     printf("3 - graphique du solde \n");
     printf("4 - charger un fichier csv \n");
     printf("5 - sauvegarder la session \n");
+    printf("6 - n'afficher qu'un type de transaction en particulier \n");
 }
 
 
@@ -108,6 +110,20 @@ void mode_graph()
 }
 
 
+
+void mode_type()
+{
+    clear_screen();
+    print_types();
+    printf("quel type voulez vous afficher ?\n");
+    int i;
+    scanf("%d",&i);
+    print_all_transactions_from_a_type(get_start_amount(),i);
+    printf("0 - retour \n");
+    scanf("%d",&i);
+}
+
+
 void stat_mode()
 {
     int quit = 0;
@@ -119,15 +135,15 @@ void stat_mode()
         if(choice == 0){quit = 1;}
         if(choice == 1){clear_screen(); printf("%lf EUR\n", total_out());}
         if(choice == 2){clear_screen(); printf("%lf EUR\n", total_in());}
-        if(choice == 3){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_total_type_i(i));}
-        if(choice == 4){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_in_type_i(i));}
-        if(choice == 5){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_out_type_i(i));}
-        if(choice == 6){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", i_comparedTo_total(i));}
+        if(choice == 3){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_total_type_i(i));}
+        if(choice == 4){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_in_type_i(i));}
+        if(choice == 5){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", get_out_type_i(i));}
+        if(choice == 6){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i); printf("%lf EUR\n", i_comparedTo_total(i));}
         if(choice == 7){clear_screen(); printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_month(m, y));}
         if(choice == 8){clear_screen(); printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_month(m, y));}
-        if(choice == 9){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_i_month(m, y,i));}
-        if(choice == 10){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_i_month(m, y,i));}
-        if(choice == 11){clear_screen(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf pourcents\n",  i_comparedTo_month(m, y,i));}
+        if(choice == 9){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_i_month(m, y,i));}
+        if(choice == 10){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_i_month(m, y,i));}
+        if(choice == 11){clear_screen(); print_types(); printf("entrez le numero du type que vous cherchez\n"); int i; scanf("%d",&i);printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf pourcents\n",  i_comparedTo_month(m, y,i));}
         if(choice == 12){clear_screen(); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_out_year(y));}
         if(choice == 13){clear_screen(); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf EUR\n",  total_in_year(y));}
         if(choice == 14){clear_screen(); printf("entrez le mois\n"); int m; scanf("%d",&m); printf("entrez l'annee\n"); int y; scanf("%d",&y); printf("%lf pourcents\n",  month_comparedTo_year(m, y));}
@@ -153,6 +169,7 @@ void mode_2()
         if(choice == 3) {mode_graph();}
         if(choice == 4) {load_a_csv();}
         if(choice == 5) {save_in_csv(); save_transactions("last_session.cma");}
+        if(choice == 6) {mode_type();}
     }
 }
 
