@@ -62,6 +62,7 @@ void draw_mode2_ui()
     printf("4 - charger un fichier csv \n");
     printf("5 - sauvegarder la session \n");
     printf("6 - n'afficher qu'un type de transaction en particulier \n");
+    printf("7 - definir des seuils \n");
 }
 
 
@@ -109,6 +110,20 @@ void mode_graph()
     }
 }
 
+
+void mode_ceil()
+{
+    clear_screen();
+    print_types();
+    printf("sur quel type voulez vous definir un seuil ?\n");
+    int i;
+    scanf("%d",&i);
+    printf("quel seuil definissez vous ? (EUR)\n");
+    double c;
+    scanf("%lf",&c);
+
+    set_type_ceil(i, c);
+}
 
 
 void mode_type()
@@ -170,6 +185,7 @@ void mode_2()
         if(choice == 4) {load_a_csv();}
         if(choice == 5) {save_in_csv(); save_transactions("last_session.cma");}
         if(choice == 6) {mode_type();}
+        if(choice == 7) {mode_ceil();}
     }
 }
 

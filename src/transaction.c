@@ -5,7 +5,35 @@
 
 int types_number = 7;
 char types[7][20] = {"immobilier","virement","loisir","voyage","nourriture","maison","divers"};
+double types_ceil[7] = {0,0,0,0,0,0,0};
+int types_ceil_defined[7] = {0,0,0,0,0,0,0};
 
+void set_type_ceil(int type, double ceil)
+{
+    if(type < types_number && type >= 0)
+    {
+        types_ceil[type] = ceil;
+        types_ceil_defined[type] = 1;
+    }
+    else
+        printf("type invalide\n");
+}
+
+int get_type_ceil_defined(int type)
+{
+    if(type < types_number && type >= 0)
+        return types_ceil_defined[type];
+    else
+        return 0;
+}
+
+double get_type_ceil(int type)
+{
+    if(type < types_number && type >= 0)
+        return types_ceil[type];
+    else
+        return 0;
+}
 
 void print_types()
 {

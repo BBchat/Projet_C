@@ -68,7 +68,19 @@ void print_all_transactions_from_a_type(double start_amount, int type)
         current_transaction = (*current_transaction).next;
     }
     if(counter == 0)
+    {
         printf("aucune transaction a afficher\n");
+    }
+    else
+    {
+        if(get_type_ceil_defined(type) == 1)
+        {
+            if(amount < get_type_ceil(type))
+            {
+                printf("ALERTE: vous avez depasse le seuil fixe sur ce type \n");
+            }
+        }
+    }
 }
 
 
