@@ -115,7 +115,11 @@ void stat_mode()
         clear_screen();
         draw_stat_mode_ui();
         scanf("%d",&choice);
-        if(choice == 0) {quit = 1;}
+        if(choice == 0)
+        {
+            quit = 1;
+            save_transactions("last_session.cma");
+        }
     }
 }
 
